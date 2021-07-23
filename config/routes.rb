@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/current_location', to: 'application#current_location'
   post '/browse', to: 'user#browse'
   post '/user/create', to: 'user#create_user'
+  post '/user/get_user', to: 'user#get_user'
   post '/user/update_tree_points', to: 'user#update_tree_points'
   post '/user/update_pollution', to: 'user#update_pollution'
 end
