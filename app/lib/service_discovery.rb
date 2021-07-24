@@ -27,4 +27,11 @@ class ServiceDiscovery
     })
     resp.instances[0].attributes["AWS_INSTANCE_IPV4"]
   end
+
+  def self.order_service_ip
+    resp = @client.list_instances({
+      service_id: ENV['ORDER_SERVICE_ID']
+    })
+    resp.instances[0].attributes["AWS_INSTANCE_IPV4"]
+  end
 end
