@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   after_validation :geocode
-  after_create :assign_default_pollution_and_tree_point
+  after_create :assign_default_environmental_values
   after_create :add_to_order_service
 
   def address
@@ -26,6 +26,10 @@ class User < ApplicationRecord
     save!
   end
 
+  def update_carbon_saved!(carbon_saved)
+    self.increment(:carbon_saved, by = carbon_saved)
+    save!
+  end
   private
 
   def add_to_order_service
@@ -50,8 +54,8 @@ class User < ApplicationRecord
     end
   end
 
-  def assign_default_pollution_and_tree_point
-    update(tree_points: 0, pollution: 0)
+  def assign_default_environmental_values
+    update(tree_points: 0, pollution: 0, carbon_saved: 0)
     save
   end
 end

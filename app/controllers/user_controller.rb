@@ -16,17 +16,11 @@ class UserController < ApplicationController
     render json: users
   end
 
-  def update_tree_points
+  def update_environmental_contribution
     user = User.find(params[:user_id])
-    raise UserNotFoundError if user.nil?
-    user.update_tree_points!(params[:tree_points].to_i)
-    render json: { message: 'User tree points updated!'}, status: 200
-  end
-
-  def update_pollution
-    user = User.find(params[:user_id])
-    raise UserNotFoundError if user.nil?
     user.update_pollution!(params[:pollution].to_f)
-    render json: { message: 'User carbon footprint updated!'}, status: 200
-  end 
+    user.update_tree_points!(params[:tree_points].to_i)
+    user.update_carbon_saved!(params[:carbon_saved].to_i)
+    render json: user
+  end
 end

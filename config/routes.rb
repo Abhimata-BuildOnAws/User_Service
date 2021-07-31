@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get '/user/health_check', to: 'application#health_check'
   post '/user/create', to: 'user#create_user'
   post '/user/get_user', to: 'user#get_user'
-  post '/user/update_tree_points', to: 'user#update_tree_points'
-  post '/user/update_pollution', to: 'user#update_pollution'
   post '/user/leaderboard', to: 'user#leaderboard'
+  post '/user/update_environmental_contribution', to: 'user#update_environmental_contribution'
 end
