@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   post '/user/get_user', to: 'user#get_user'
   post '/user/update_tree_points', to: 'user#update_tree_points'
   post '/user/update_pollution', to: 'user#update_pollution'
+  post '/user/leaderboard', to: 'user#leaderboard'
 end

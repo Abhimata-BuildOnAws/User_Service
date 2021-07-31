@@ -5,6 +5,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   after_validation :geocode
+  after_create :assign_default_pollution_and_tree_point
   after_create :add_to_order_service
 
   def address
@@ -25,10 +26,12 @@ class User < ApplicationRecord
     save!
   end
 
+  private
+
   def add_to_order_service
     order_service_ip = ServiceDiscovery.order_service_ip
     # Public IP
-    # order_service_ip = "18.139.84.70"
+    # order_service_ip = "18.141.209.125"
     url = "http://" + order_service_ip + ":3000/user/create"
 
     headers = { "Content-Type": "application/json; charset=utf-8" }
@@ -45,5 +48,10 @@ class User < ApplicationRecord
     response = conn.post do |req|
       req.body = values.to_json
     end
+  end
+
+  def assign_default_pollution_and_tree_point
+    update(tree_points: 0, pollution: 0)
+    save
   end
 end

@@ -11,6 +11,11 @@ class UserController < ApplicationController
     render json: user
   end
 
+  def leaderboard
+    users = User.order(tree_points: :desc).page(params[:page]).per(10)
+    render json: users
+  end
+
   def update_tree_points
     user = User.find(params[:user_id])
     raise UserNotFoundError if user.nil?

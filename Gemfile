@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'geocoder'
 
+gem 'kaminari'
+
 # Making external api request
 gem 'faraday'
 
