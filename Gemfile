@@ -31,6 +31,7 @@ gem 'kaminari'
 
 # Making external api request
 gem 'faraday'
+gem 'rack-cors'
 
 # AWS
 gem 'aws-sdk-servicediscovery'
