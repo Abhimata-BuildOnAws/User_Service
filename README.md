@@ -25,6 +25,8 @@ User Service features functionalities to create users. It also communicates with
     - The key to access Open Routes Service API
 - ```BING_MAPS_KEY```
     - The key to access Bing Maps Service API
+- ```ABSTRACT_API_KEY```
+    - The key to access Abstract Service API
  
 File format:
 ```sh
@@ -35,10 +37,12 @@ RDS_ENDPOINT:
 AWS_ACCESS_KEY:
 AWS_SECRET_KEY: 
 AWS_REGION:
-USER_SERVICE_ID: 
+RESTAURANT_SERVICE_ID:
+ORDER_SERVICE_ID:
 
 OPEN_ROUTES_API_KEY: 
 BING_MAPS_KEY:
+ABSTRACT_API_KEY:
 
 ```
 
